@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<config>
+
+	<modules>
+		<Anny_Redirects>
+			<version>0.2.0</version>
+			<platform>ce</platform>
+		</Anny_Redirects>
+	</modules>
+
+	<global>
+		<helpers>
+			<redirects>
+				<class>Anny_Redirects_Helper</class>
+			</redirects>
+		</helpers>
+		<models>
+			<redirects>
+				<class>Anny_Redirects_Model</class>
+			</redirects>
+		</models>
+	</global>
+
+	<frontend>
+		<events>
+			<controller_action_predispatch>
+				<observers>
+					<redirects_do_redirect>
+						<type>singleton</type>
+						<class>redirects/redirector</class>
+						<method>doRedirectAfterRoute</method>
+					</redirects_do_redirect>
+				</observers>
+			</controller_action_predispatch>
+			<controller_action_noroute>
+				<observers>
+					<redirects_do_redirect_noroute>
+						<type>singleton</type>
+						<class>redirects/redirector</class>
+						<method>doRedirectOnNoroute</method>
+					</redirects_do_redirect_noroute>
+				</observers>
+			</controller_action_noroute>
+		</events>
+	</frontend>
+
+	<default>
+		<redirects>
+			<general>
+				<enabled>0</enabled>
+				<noroute_only>1</noroute_only>
+			</general>
+			<match>
+				<type>full</type>
+				<type_regex_escape_slashes>0</type_regex_escape_slashes>
+			</match>
+		</redirects>
+	</default>
+
+</config>

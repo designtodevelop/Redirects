@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<config>
+	<tabs>
+		<redirects translate="label" module="redirects">
+			<label>Redirects</label>
+			<sort_order>500</sort_order>
+		</redirects>
+	</tabs>
+	<sections>
+		<redirects translate="label" module="redirects">
+			<label>Configuration</label>
+			<tab>redirects</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>400</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general translate="label" module="redirects">
+					<label>General</label>
+					<sort_order>100</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label" module="redirects">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enabled>
+						<noroute_only translate="label comment" module="redirects">
+							<label>Only redirect on 404 error</label>
+							<comment><![CDATA[Disabling this will enable redirection even when an existent page is found.]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</noroute_only>
+						<use_first_match translate="label comment" module="redirects">
+							<label>Use first match</label>
+							<comment><![CDATA[By default, the last match in your CSV is used for redirection (better for partial and regular expression matching). If this is set to 'yes' the first match will be used instead.]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_first_match>
+					</fields>
+				</general>
+				<match translate="label" module="redirects">
+					<label>Matching</label>
+					<sort_order>200</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<include_host translate="label comment" module="redirects">
+							<label>Test against hostname</label>
+							<comment><![CDATA[Test URL against hostname as well as request URI.]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</include_host>
+						<type translate="label" module="redirects">
+							<label>Match type</label>
+							<frontend_type>select</frontend_type>
+							<source_model>redirects/system_config_source_match_type</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</type>
+						<type_regex_escape_slashes translate="label" module="redirects">
+							<label>Escape forward slashes</label>
+							<comment><![CDATA[Only applicable when match type is 'Regular Expression': automatically escape / characters if they are not escaped in the source CSV.]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</type_regex_escape_slashes>
+						<csv_file translate="label" module="redirects">
+							<label>CSV file</label>
+							<frontend_type>file</frontend_type>
+							<backend_model>redirects/system_config_backend_file</backend_model>
+							<upload_dir config="var">redirects</upload_dir>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</csv_file>
+					</fields>
+				</match>
+			</groups>
+		</redirects>
+	</sections>
+</config>

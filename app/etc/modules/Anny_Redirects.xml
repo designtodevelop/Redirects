@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<config>
+	<modules>
+		<Anny_Redirects>
+			<active>true</active>
+			<codePool>community</codePool>
+			<depends>
+				<Mage_Adminhtml />
+			</depends>
+		</Anny_Redirects>
+	</modules>
+</config>
