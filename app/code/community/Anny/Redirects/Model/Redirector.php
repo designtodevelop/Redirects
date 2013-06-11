@@ -68,7 +68,6 @@ class Anny_Redirects_Model_Redirector {
 						else {
 							$regex = '/'.$src.'/';
 						}
-						Mage::log( $regex, null, 'regex.log', true );
 						if( @preg_match( $regex, $url )) {
 							$redirect = $dest;
 							if($breakOnMatch) break;
